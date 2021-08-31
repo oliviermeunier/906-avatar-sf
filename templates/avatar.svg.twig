@@ -1,0 +1,18 @@
+<svg
+	id="avatar" viewbox="0 0 {{ avatar.size }} {{ avatar.getSize() }}">
+
+	{# <?php foreach ($avatar->getMatrix() as $rowIndex => $row): ?> #}
+	{% for rowIndex, row in avatar.matrix %}
+
+		{# <?php foreach ($row as $colIndex => $color):?> #}
+		{% for colIndex, color in row %}
+			{# <rect x="<?=$colIndex?>" y="<?=$rowIndex?>" width="1" height="1" fill="<?=$color?>"/> #}
+			<rect
+			x="{{ colIndex }}" y="{{ rowIndex }}" width="1" height="1" fill="{{ color }}"/>
+
+		{# <?php endforeach; ?> #}
+		{% endfor %}
+
+		{# <?php endforeach; ?> #}
+	{% endfor %}
+</svg>
