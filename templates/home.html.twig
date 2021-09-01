@@ -18,6 +18,20 @@
 				<div class="row d-flex justify-content-center">
 					<div class="col-4 d-flex justify-content-end">
 						{{ svg|raw }}
+
+						<form action="{{ path('avatar_save') }}" method="post">
+							<input type="hidden" name="svg" value="{{ svg }}">
+							<button type="submit" class="btn btn-primary">
+								<i class="far fa-save"></i>
+								Enregistrer</button>
+						</form>
+
+						<form action="{{ path('avatar_save') }}" method="post">
+							<input type="hidden" name="svg" value="{{ svg }}">
+							<button type="submit" class="btn btn-primary">
+								<i class="fas fa-file-download"></i>
+								Télécharger</button>
+						</form>
 					</div>
 					<div class="col-4">
 						<form action="{{ path('home') }}" method="post">
@@ -37,6 +51,14 @@
 								<i class="fas fa-redo"></i>
 								Générer un avatar</button>
 						</form>
+					</div>
+				</div>
+				<div class="mt-3 row d-flex justify-content-center">
+					<div class="col-8">
+						{% if avatar %}
+							<h2>Dernier avatar enregistré</h2>
+							<img id="last-saved-avatar" src="/avatars/{{ avatar }}" alt="">
+						{% endif %}
 					</div>
 				</div>
 			</main>
